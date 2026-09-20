@@ -1,5 +1,6 @@
 .DS_Store
 .sites-runtime/
+.openai/
 node_modules/
 *.tgz
 test-results/

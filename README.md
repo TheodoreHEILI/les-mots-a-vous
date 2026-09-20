@@ -1,22 +1,55 @@
 # Les mots à vous
 
-Générateur français de mots croisés et fléchés personnalisés, avec landing page, parcours en quatre étapes, mot mystère, brouillon local, thèmes, export PDF vectoriel (A4 et corrigé optionnel), SVG et impression.
+**Transformez vos souvenirs en mots croisés personnalisés.** Choisissez une occasion, ajoutez vos mots et indices, puis imprimez une grille unique à offrir ou à partager.
 
-## Utilisation locale
+🌐 **Site public :** [les-mots-a-vous.tiop.chatgpt.site](https://les-mots-a-vous.tiop.chatgpt.site/)
 
-`npm install` puis `npm run dev`, ouvrir http://127.0.0.1:4173.
+<p align="center">
+  <a href="https://les-mots-a-vous.tiop.chatgpt.site/"><img src="docs/screenshots/home.png" alt="Page d’accueil de Les mots à vous" width="760"></a>
+</p>
 
-`npm test` vérifie les intersections, les cases réservées aux indices, les doublons, accents, mots disjoints, mots mystères et exports PDF. `npm run check` vérifie la syntaxe.
+<p align="center">
+  <img src="docs/screenshots/workshop.png" alt="Aperçu de la grille et des options d’export" width="760">
+</p>
 
-## Architecture
+## Fonctionnalités
 
-Site statique sans compilation. Le contenu servi et publiable se trouve dans `dist/`. Aucun mot personnel n’est envoyé à un serveur. Le brouillon est stocké uniquement dans le navigateur. Le mode exemple n’écrase pas le brouillon existant.
+- Landing page soignée et parcours de création en quatre étapes.
+- Mots croisés et mots fléchés, avec de 5 à 18 mots personnalisés.
+- Aperçu animé : l’indice apparaît avant les lettres du mot au fil de la saisie.
+- Mot mystère, couleurs, titre, signature et corrigé optionnel.
+- Exports PDF A4, SVG et impression depuis le navigateur.
+- Brouillon conservé localement : aucun souvenir n’est envoyé à un serveur.
+- Version anglaise complète : ajoutez [`?lang=en`](https://les-mots-a-vous.tiop.chatgpt.site/?lang=en) ou utilisez le bouton **EN** du site.
 
-- `generator.js` : essais déterministes à partir d’une graine, intersections vérifiées, conservation des mots non raccordables dans des groupes séparés, réservation des cases fléchées, association unique des lettres du mot mystère.
-- `app.js` : landing et atelier, validation, stockage et exports.
-- `pdf.js` : export vectoriel avec jsPDF, indices complets et corrigé séparé. Les indices longs sont abrégés dans les petites cases fléchées et reproduits intégralement sous la grille.
-- `vendor/` : version locale de jsPDF et sa licence. Après mise à jour de la dépendance, recopier `node_modules/jspdf/dist/jspdf.umd.min.js` dans ce dossier.
+## Lancer le projet
 
-La photo d’ambiance a été générée avec Imagegen. Police : DM Sans et Manrope, via Google Fonts, avec polices système de repli.
+```bash
+npm install
+npm run dev
+```
 
-L’application n’inclut pas de paiement ni d’envoi postal. La publication Sites initiale est privée. Pour les grilles denses, les indices complets passent sur des pages séparées afin de conserver des cases lisibles.
+Ouvrez ensuite [http://127.0.0.1:4173](http://127.0.0.1:4173). Le site est statique : les fichiers publiés sont dans [`dist/`](dist/).
+
+## Vérifications
+
+```bash
+npm test
+npm run check
+```
+
+Les tests couvrent les croisements, les entrées invalides et dupliquées, le mot mystère, les deux formats de grilles ainsi que les exports PDF.
+
+## Structure
+
+| Emplacement | Rôle |
+| --- | --- |
+| [`dist/app.js`](dist/app.js) | Interface, bilinguisme, brouillon local et exports |
+| [`dist/generator.js`](dist/generator.js) | Placement déterministe des mots et génération des grilles |
+| [`dist/pdf.js`](dist/pdf.js) | Création des PDF A4 et corrigés |
+| [`dist/atelier.css`](dist/atelier.css) | Atelier de création et animation des lettres |
+| [`tests/`](tests/) | Tests du générateur et des exports |
+
+## Vie privée
+
+Les mots et indices restent dans le navigateur de la personne qui crée la grille. Ils ne sont pas transmis à un serveur. La configuration d’hébergement locale est volontairement exclue du dépôt.

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Les mots à vous — Vos souvenirs, en mots croisés</title>
+ <meta name="description" content="Transformez vos souvenirs en mots croisés ou mots fléchés personnalisés. Choisissez une occasion, ajoutez vos mots et imprimez votre grille et son corrigé.">
+ <meta name="theme-color" content="#ffffff">
+ <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23e93664'/%3E%3Cpath d='M8 8h6v6H8zm10 0h6v6h-6zM8 18h6v6H8z' fill='white'/%3E%3Cpath d='M18 18h6v6h-6z' fill='%23ffb8cb'/%3E%3C/svg%3E">
+ <link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/atelier.css">
+ <script src="/vendor/jspdf.umd.min.js" defer></script>
+ <script type="module" src="/app.js"></script>
+</head>
+<body>
+ <a class="skip" href="#main">Aller au contenu</a>
+ <header class="site-header"><a href="/" class="brand" aria-label="Les mots à vous, accueil"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>les mots <span>à vous.</span></a><nav aria-label="Navigation principale"><a href="/#comment">Comment ça marche</a><a href="/#occasions">Les occasions</a><a href="/#questions">Questions fréquentes</a></nav><a href="/creer" class="button small">Créer ma grille <span aria-hidden="true">↗</span></a></header>
+ <main id="main"></main>
+ <footer class="site-footer"><a href="/" class="brand">les mots <span>à vous.</span></a><span>Des souvenirs à croiser. Des sourires à partager.</span><span>Fait pour vos histoires ♡</span></footer>
+ <div class="toast" id="toast" role="status" hidden></div>
+ <div id="print-root"></div>
+</body></html>
